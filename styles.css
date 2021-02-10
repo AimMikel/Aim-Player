@@ -1,0 +1,281 @@
+/**
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * Project  : Aim Player
+ * Developer: Aim Mikel (Michael Aloo)
+ * Created  : 10 Feb, 2021
+ * Copyright: 2021 Aim Mikel
+ * Contacts : { email: 'michaelaloo.sudo@gmail.com', phone: '+254703929108' }
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * This project and all its content was created by Aim Mikel and is therefore
+ * a copyright of the owner. All rights are therefore reserved.
+ *
+ * You can edit or redistribute this file as you want.
+ * However, this product should not be used for any commercial purposes without
+ * owners awareness.
+ *
+ * The aim of this project was to teach developers who are begginers in web
+ * development some basic Javascript fundamentals.
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */
+
+:root {
+	--color-primary: #006699;
+	--color-default: #000000;
+	--color-primary-variant: #cccccc;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	outline: none;
+	border: none;
+	background: none;
+	box-shadow: none;
+	box-sizing: border-box;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-size: 15px;
+	user-select: none;
+}
+
+body {
+	background: rgba(0, 0, 0, 0.4);
+}
+
+.main-frame {
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: column;
+	-webkit-flex-direction: column;
+	width: 98%;
+	max-width: 900px;
+	height: 99%;
+	max-height: 600px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border: 2px solid var(--color-default);
+	border-radius: 5px;
+	background: #ffffff;
+	overflow: hidden;
+}
+
+.main-frame .header {
+	position: relative;
+	height: 40px;
+	min-height: 40px;
+	display: flex;
+	display: -webkit-flex;
+	align-items: center;
+	-webkit-align-items: center;
+	justify-content: space-between;
+	-webkit-justify-content: space-between;
+	padding: 0 10px;
+	z-index: 200;
+}
+
+.header .btn {
+	display: block;
+	padding: 5px 10px;
+	background: var(--color-primary);
+	color: var(--color-primary-variant);
+	border-radius: 5px;
+	cursor: pointer;
+}
+.header h1 {
+	font-size: 130%;
+	color: var(--color-primary);
+	margin-left: 5px;
+	white-space: nowrap;
+}
+.header .logo {
+	width: 30px;
+	height: 30px;
+}
+.header .title {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	padding: 0 10px;
+}
+
+.player-frame {
+	display: block;
+	position: relative;
+	margin: 0 5px;
+	max-height: calc(100% - 100px);
+	flex-grow: 1;
+	-webkit-flex-grow: 1;
+	background-color: var(--color-default);
+	z-index: 100;
+}
+.player-frame .video {
+	width: 100%;
+	height: 100%;
+	display: block;
+	z-index: 5;
+}
+.player-frame .image {
+	display: block;
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 0.7;
+	z-index: 1;
+}
+.player-frame .playlist {
+	position: absolute;
+	display: block;
+	width: 100%;
+	max-width: 250px;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.3);
+	z-index: 10;
+	overflow: hidden;
+	overflow-y: auto;
+	border-left: 1px solid rgba(255, 255, 255, 0.3);
+}
+.playlist .each-item {
+	color: #ffffff;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding: 10px;
+	cursor: pointer;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+.playlist .each-item.current {
+	color: var(--color-primary);
+}
+.main-frame .footer {
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: column;
+	-webkit-flex-direction: column;
+	width: 100%;
+	margin: 5px 0;
+	height: 50px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 300;
+}
+.btns,
+.volume-frame,
+.progress-frame {
+	display: flex;
+	display: -webkit-flex;
+	align-items: center;
+	-webkit-align-items: center;
+}
+.elapsed-time,
+.total-time {
+	display: block;
+	width: 80px;
+	text-align: center;
+	cursor: pointer;
+}
+.default-bar {
+	display: block;
+	position: relative;
+	height: 13px;
+	flex-grow: 1;
+	-webkit-flex-grow: 1;
+	background: rgba(0, 0, 0, 0.2);
+	border-radius: 7px;
+}
+.progress-bar {
+	height: 100%;
+	width: 0;
+	background: var(--color-primary);
+	border-radius: 5px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.hover-time {
+	position: absolute;
+	display: block;
+	width: 80px;
+	height: 20px;
+	top: -25px;
+	left: 0;
+	background: #ccc;
+	border-radius: 3px;
+	text-align: center;
+	font-size: 90%;
+	line-height: 20px;
+}
+.hover-time::after {
+	content: '';
+	display: block;
+	width: 5px;
+	height: 5px;
+	position: absolute;
+	top: calc(100% - 2px);
+	left: calc(50% - 2px);
+	background: inherit;
+	transform: rotate(45deg);
+}
+.controls-frame {
+	display: flex;
+	display: -webkit-flex;
+	align-items: center;
+	-webkit-align-items: center;
+	justify-content: space-between;
+	-webkit-justify-content: space-between;
+	padding: 0 10px;
+	margin-top: 5px;
+}
+.btns .btn {
+	display: block;
+	width: 25px;
+	height: 25px;
+	border: 1px solid var(--color-default);
+	border-radius: 5px;
+	margin: 0 2px;
+	cursor: pointer;
+}
+.btns .btn svg {
+	display: block;
+	width: 15px;
+	height: 15px;
+	margin: auto;
+}
+.btns .list-count {
+	padding: 0 10px;
+}
+.volume-frame .btn {
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+	margin: 0 5px;
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.hide {
+	display: none !important;
+}
+.flex {
+	display: flex;
+	display: -webkit-flex;
+	align-items: center;
+	-webkit-align-items: center;
+}
+.active,
+.active * {
+	color: var(--color-primary) !important;
+	border-color: var(--color-primary) !important;
+	fill: var(--color-primary) !important;
+}
+
+/**
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * End of File. Goodbye and good luck in your programming.
+ * Remember, genius is 1% talent and 99% hardwork.
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ */

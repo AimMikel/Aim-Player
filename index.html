@@ -1,0 +1,87 @@
+<!--
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * Project  : Aim Player
+ * Developer: Aim Mikel (Michael Aloo)
+ * Created  : 10 Feb, 2021
+ * Copyright: 2021 Aim Mikel
+ * Contacts : { email: 'michaelaloo.sudo@gmail.com', phone: '+254703929108' }
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * This project and all its content was created by Aim Mikel and is therefore
+ * a copyright of the owner. All rights are therefore reserved.
+ *
+ * You can edit or redistribute this file as you want.
+ * However, this product should not be used for any commercial purposes without
+ * owners awareness.
+ *
+ * The aim of this project was to teach developers who are begginers in web
+ * development some basic Javascript fundamentals.
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * -->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Aim Player</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<div class="main-frame">
+			<div class="header">
+				<section class="flex">
+					<img src="assets/aimikel.png" alt="aimikel logo" class="logo" />
+					<h1>Aim Player</h1>
+				</section>
+
+				<h5 class="title">This title is very long and it should span multiple lines if it is long enough men. lets add some text to make it even more longer</h5>
+				<button type="button" class="btn" id="btn-open">Select</button>
+				<input class="hide" type="file" id="files" name="files" multiple />
+			</div>
+			<div class="player-frame">
+				<img src="assets/aimikel.png" class="image" id="watermark" alt="aimikel logo" />
+				<video id="video" class="video hide">
+					<source src="" type="" />
+				</video>
+				<div class="playlist hide"></div>
+			</div>
+			<div class="footer">
+				<div class="progress-frame">
+					<span class="elapsed-time">00:00:00</span>
+					<section class="default-bar">
+						<section class="progress-bar"></section>
+						<span class="hover-time hide">00:00:00</span>
+					</section>
+					<span class="total-time">00:00:00</span>
+				</div>
+				<div class="controls-frame">
+					<div class="btns">
+						<button type="button" id="btn-backward" class="btn" title="Backward"></button>
+						<button type="button" id="btn-play" class="btn" title="play/pause"></button>
+						<button type="button" id="btn-forward" class="btn" title="Forward"></button>
+						<button type="button" id="btn-previous" class="btn" title="Previous"></button>
+						<button type="button" id="btn-repeat" class="btn active" title="Repeat"></button>
+						<button type="button" id="btn-next" class="btn" title="Next"></button>
+						<button type="button" id="btn-maximize" class="btn" title="Maximize"></button>
+						<button type="button" id="btn-playlist" class="btn" title="Playlist"></button>
+						<span class="list-count">0/0</span>
+					</div>
+					<section class="volume-frame">
+						<span class="volume-val">50%</span>
+						<button type="button" id="btn-volume" class="btn"></button>
+						<input type="range" name="volume" id="volume" min="0" max="100" value="50" />
+					</section>
+				</div>
+			</div>
+		</div>
+		<script src="js/svg.js"></script>
+		<script src="js/fn.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>
+
+<!--
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * End of File. Goodbye and good luck in your programming.
+ * Remember, genius is 1% talent and 99% hardwork.
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->
